@@ -1,0 +1,2 @@
+[2026-02-24 13:35:36] Backup criado: backup_tudo_2026-02-24_13-35-35.zip (Tipo: tudo)
+[2026-02-24 13:35:48] Backup criado: backup_imagens_2026-02-24_13-35-48.zip (Tipo: imagens)

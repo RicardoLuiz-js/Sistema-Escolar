@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bens Cadastrados</title>
+  <link rel="icon" type="image/svg+xml" href="../imagens/laptop.svg">
+   
+</head>
+<body>
+    <section id="bens-cadastrados">
+
+        
+        <h2>bens Cadastrados</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Descrição</th>
+                    <th>Código</th>
+                    <th>Data de Entrada</th>
+                  
+                </tr>
+            </thead>
+            <tbody id="tabela-bens">
+                <!-- As linhas da tabela serão preenchidas aqui via JavaScript -->
+            </tbody>
+        </table>
+    </section>
+
+    <script>
+        // Função para carregar os produtos via AJAX
+        function carregarBens() {
+            // Faz a requisição AJAX
+            fetch('../php/buscar_bens.php')
+                .then(response => response.json()) // Converte a resposta para JSON
+                .then(data => {
+                    const tbody = document.getElementById('tabela-bens');
+                    tbody.innerHTML = ''; // Limpa o conteúdo atual da tabela
+
+                    // Preenche a tabela com os dados retornados
+                    data.forEach(bens => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td>${bens.nome}</td>
+                            <td>${bens.descricao}</td>
+                            <td>${bens.numero_tombo}</td>
+                            <td>${bens.data_cadastro}</td>
+                  
+                        `;
+                        tbody.appendChild(row);
+                    });
+                })
+                .catch(error => {
+                    console.error('Erro ao carregar bens:', error);
+                });
+        }
+
+        // Carrega os produtos quando a página é carregada
+        document.addEventListener('DOMContentLoaded', carregarBens);
+    </script>
+</body>
+</html>

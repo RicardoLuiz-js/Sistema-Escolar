@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <!-- Configurações básicas do documento -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Controle de Estoque</title>
+  
+  <!-- Link para o arquivo CSS e ícone da página -->
+  <link rel="stylesheet" href="../css/style.css">
+<link rel="icon"  href="../imagens/estoque-pronto.ico">
+    <!-- Estilos inline para a caixa de mensagem -->
+    <style>
+      #message-box {
+          position: fixed;
+          bottom: 20px;
+          right: 20px;
+          background-color: #4CAF50;
+          color: white;
+          padding: 15px;
+          border-radius: 5px;
+          display: none;
+          z-index: 1000;
+      }
+    </style>
+</head>
+<body>
+  <!-- Cabeçalho da página -->
+  <header>
+    <a href="index.html">
+      <p>Controle De Estoque</p>
+    </a>
+  </header>
+
+  <!-- Conteúdo principal da página -->
+  <main>
+    <!-- Ícone do menu móvel -->
+    <div id="mobile-menu-icon">&#9776;</div> <!-- Ícone de hambúrguer -->
+    
+    <!-- Menu de navegação -->
+    <div id="Menu">    
+      <div id="close-menu-icon">&#10005;</div> <!-- Botão de "X" para fechar o menu -->
+      <a href="index.html">  
+        <div class="circle-container">  
+          <div class="circle"><img class="icon" src="../imagens/home.png" alt=""></div>
+          <p>Home</p>
+        </div>
+      </a>
+      <a href="adicionarhtml.php">  
+        <div class="circle-container"> 
+          <div class="circle"><img class="icon" src="../imagens/adicionar.png" alt=""></div>
+          <p>Adicionar</p>
+        </div>
+      </a>
+      <a href="utilizar.html"> 
+        <div class="circle-container"> 
+          <div class="circle"><img class="icon" src="../imagens/botao-de-menos.png" alt=""></div>
+          <p>Utilizar</p>
+        </div>
+      </a>
+      <a href="LimparDados.html"> 
+        <div class="circle-container">
+          <div class="circle"><img class="icon1" src="../imagens/Limpar.png" alt=""></div>
+          <p>Limpar Dados</p>
+        </div>
+      </a>
+     
+       <a href="imprimir-estoque.html"> 
+        <div class="circle-container"> 
+          <div class="circle"><img class="icon1" src="../imagens/pdf.png" alt=""></div>
+          <p>Imprimir</p>
+        </div>
+      </a>
+    </div>
+
+    <!-- Corpo principal do conteúdo -->
+    <div id="corpo">
+      <!-- Cabeçalho da seção -->
+      <div id="cabecalho">
+        <p>Visão Geral Do Estoque</p>
+      </div>
+
+      <!-- Seção de status e filtros -->
+      <div id="form-cab">
+        <a href="">Principal</a>
+        <div class="status-container">
+          <span id="emFaltaCount">0</span>
+          <a href="#" onclick="toggleFilter('emFalta')">Em Falta</a>
+        </div>
+        <div class="status-container">
+          <span id="validadeCount">0</span>
+          <a href="#" onclick="toggleFilter('validade')">Validade</a>
+        </div>
+        <div class="status-container">
+          <span id="estragadosCount">0</span>
+          <a href="#" onclick="toggleFilter('estragados')">Estragados</a>
+        </div>
+      </div>
+
+      <!-- Seção de categorias, pesquisa e filtros -->
+      <div id="form-items">
+        <div id="categorias">  
+          <select id="categorySelect" onchange="applyFilters()">
+            <option value="opcao1">Categorias</option>
+            <option value="Alimentos não perecíveis">Alimentos não perecíveis</option>
+            <option value="Alimentos perecíveis">Alimentos perecíveis</option>
+            <option value="Frios e carnes">Frios e carnes</option>
+            <option value="Limpeza">Limpeza</option>
+          </select>
+        </div>
+
+        <div id="pesquisa">
+          <input id="searchInput" onkeyup="searchTable()" class="pesquisa" type="search" placeholder="Pesquise Por Produtos">
+        </div>
+
+        <div id="filtros">
+          <select id="filterSelect" onchange="applyFilters()">
+            <option value="opcao1">Filtros</option>
+            <option value="opcao2">Data De Entrada</option>
+            <option value="opcao3">Data De Validade</option>
+            <option value="opcao4">Quantidade</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Tabela de produtos cadastrados -->
+      <div id="form-container">
+        <section id="produtos-cadastrados">
+          <table id="myTable">
+            <thead>
+              <tr>
+                <th>Nome do Produto</th>
+                <th>Descrição</th>
+                <th class="visible">Categoria</th>
+                <th>Quantidade</th>
+                <th class="visible">Unidade</th>
+                <th class="data">Data de Entrada</th>
+                <th class="data">Data de Validade</th>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="tabela-produtos">
+              <!-- As linhas da tabela serão preenchidas aqui via JavaScript -->
+            </tbody>
+          </table>
+        </section>
+      </div>
+    </div>
+  </main>
+ <!-- Caixa de mensagem para feedback ao usuário -->
+ <div id="message-box"></div>
+  <!-- Link para o arquivo JavaScript -->
+  <script src="../js/script.js" defer></script>
+</body>
+</html>

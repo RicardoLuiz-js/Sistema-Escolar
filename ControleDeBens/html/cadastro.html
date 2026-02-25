@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <!-- Configurações básicas do documento -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Controle de Bens</title>
+  
+  <!-- Link para o arquivo CSS e ícone da página -->
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="icon" type="image/svg+xml" href="../imagens/laptop.svg">
+  
+  <!-- Estilos inline para a caixa de mensagem -->
+  <style>
+ 
+  </style>
+</head>
+
+<body>
+
+  <!-- Cabeçalho da página -->
+  <header>
+    <a href="index.html">
+      <p>Controle De Bens</p>
+    </a>
+  </header>
+
+  <!-- Conteúdo principal da página -->
+  <main>
+
+    <!-- Ícone do menu móvel -->
+    <div id="mobile-menu-icon">&#9776;</div> <!-- Ícone de hambúrguer -->
+    
+    <!-- Menu de navegação -->
+    <div id="Menu">
+      <div id="close-menu-icon">&#10005;</div> <!-- Botão de "X" para fechar o menu -->
+      <a href="index.html">
+        <div class="circle-container">  
+          <div class="circle"><img class="icon" src="../imagens/home.png" alt=""></div>
+          <p>Home</p>
+        </div>
+      </a>
+      <a href="adicionarhtml.php">  
+        <div class="circle-container"> 
+          <div class="circle"><img class="icon" src="../imagens/adicionar.png" alt=""></div>
+          <p>Adicionar</p>
+        </div>
+      </a>
+     
+      <a href="LimparDados.html"> 
+        <div class="circle-container">
+          <div class="circle"><img class="icon1" src="../imagens/Limpar.png" alt=""></div>
+          <p>Limpar Dados</p>
+        </div>
+      </a>
+      <a href="relatorios.html"> 
+        <div class="circle-container"> 
+          <div class="circle"><img class="icon1" src="../imagens/Relatorios.png" alt=""></div>
+          <p>Relatorios</p>
+        </div>
+      </a>
+    </div>
+
+    <!-- Corpo principal do conteúdo -->
+    <div id="corpo">
+      <div id="cabecalho">
+        <p>Cadastro de bens</p>
+      </div>
+
+      <!-- Container para o formulário de cadastro de produtos -->
+      <div id="container-pai">
+        <div class="cab"> 
+          <h1>Adicione Bens ao Sistema</h1>
+        </div>
+        <div id="container-filho">
+          
+<form class="form" id="form-cadastro">
+    <div class="form-caixa">
+        <button type="button" class="bt-cadeado" data-cadeado-id="cadeado1">
+            <img id="imagemBotao1" src="../imagens/image1.png" alt="">
+        </button>
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required>
+    </div> 
+
+    <div class="form-caixa"> 
+        <button type="button" class="bt-cadeado" data-cadeado-id="cadeado2">
+            <img id="imagemBotao2" src="../imagens/image1.png" alt="">
+        </button>
+        <label for="descricao">Descrição:</label>
+        <input type="text" id="descricao" name="descricao" required>
+    </div> 
+    
+    <div class="form-caixa">
+        <button type="button" class="bt-cadeado" data-cadeado-id="cadeado3">
+            <img id="imagemBotao3" src="../imagens/image1.png" alt="">
+        </button>
+        <label for="localizacao">Localização:</label>
+        <input type="text" id="localizacao" name="localizacao" required>
+    </div> 
+
+    <div class="form-caixa">
+        <label for="codigo">Número de Tombo:</label>
+        <input type="text" id="codigo" name="codigo" required>
+    </div> 
+    
+    <div class="button-container">
+        <button type="submit" class="button-cadastro">Cadastrar Produto</button>
+    </div>
+</form>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Caixa de mensagem para feedback ao usuário -->
+  <div id="message-box"></div>
+  <script src="../js/global.js"></script>
+  <script src="../js/cadastro.js"></script>
+  <!-- Scripts JavaScript -->
+ 
+  
+</body>
+
+</html>

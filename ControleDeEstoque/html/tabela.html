@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos Cadastrados</title>
+ <link rel="icon" type="image/svg+xml" href="../imagens/icon.svg">
+   
+</head>
+<body>
+    <section id="produtos-cadastrados">
+
+        
+        <h2>Produtos Cadastrados</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome do Produto</th>
+                    <th>Descrição</th>
+                    <th>Categoria</th>
+                    <th>Quantidade</th>
+                    <th>Unidade</th>
+                    <th>Data de Entrada</th>
+                    <th>Data de Validade</th>
+                </tr>
+            </thead>
+            <tbody id="tabela-produtos">
+                <!-- As linhas da tabela serão preenchidas aqui via JavaScript -->
+            </tbody>
+        </table>
+    </section>
+
+    <script>
+        // Função para carregar os produtos via AJAX
+        function carregarProdutos() {
+            // Faz a requisição AJAX
+            fetch('../php/buscar_produtos.php')
+                .then(response => response.json()) // Converte a resposta para JSON
+                .then(data => {
+                    const tbody = document.getElementById('tabela-produtos');
+                    tbody.innerHTML = ''; // Limpa o conteúdo atual da tabela
+
+                    // Preenche a tabela com os dados retornados
+                    data.forEach(produto => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td>${produto.nome}</td>
+                            <td>${produto.descricao}</td>
+                            <td>${produto.categoria}</td>
+                            <td>${produto.quantidade}</td>
+                            <td>${produto.unidade}</td>
+                            <td>${produto.entrada}</td>
+                            <td>${produto.validade}</td>
+                            <td>${produto.id}</td>
+                        `;
+                        tbody.appendChild(row);
+                    });
+                })
+                .catch(error => {
+                    console.error('Erro ao carregar produtos:', error);
+                });
+        }
+
+        // Carrega os produtos quando a página é carregada
+        document.addEventListener('DOMContentLoaded', carregarProdutos);
+    </script>
+</body>
+</html>

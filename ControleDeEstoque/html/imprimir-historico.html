@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <!-- Configurações básicas do documento -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Controle de Estoque</title>
+  
+  <!-- Link para o arquivo CSS e ícone da página -->
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/imprimir.css">
+<link rel="icon" type="image/svg+xml" href="../imagens/icon.svg">
+    <!-- Estilos inline para a caixa de mensagem -->
+    <style>
+      #message-box {
+          position: fixed;
+          bottom: 20px;
+          right: 20px;
+          background-color: #4CAF50;
+          color: white;
+          padding: 15px;
+          border-radius: 5px;
+          display: none;
+          z-index: 1000;
+      }
+    </style>
+</head>
+<body style="overflow-y: auto;">
+  <!-- Cabeçalho da página -->
+  <header>
+    <a href="index.html">
+      <p class="title">Controle De Estoque</p>
+    </a>
+  </header>
+
+  <!-- Conteúdo principal da página -->
+  <main>
+
+
+    <!-- Corpo principal do conteúdo -->
+    <div id="corpo">
+        <button class="imprimir-button" onclick="imprimir()"><img class="pdf" src="../imagens/pdf.png" alt=""></button>
+      <!-- Cabeçalho da seção -->
+      <div id="cabecalho">
+        <p>Visão Geral de Produtos Utilizados</p>
+      </div>
+ <div  class="relatorios-container"   >
+ 
+      <div class="navigation" style="margin-top: 10px;">
+              <a href="imprimir-estoque.html"><button class="nav-btn prev-btn">&#10094;</button></a>
+                <a href="imprimir-estoque.html"><button class="nav-btn next-btn">&#10095;</button></a>
+            </div>
+    <div class="form-container" style="overflow-y: inherit; overflow-x: inherit;">
+    <div class="form-cab"> <h2>Produtos Utilizados</h2></div>
+    <div class="form-items">  
+
+    <div id="pesquisa">
+        <input class="pesquisa" type="text" id="searchInputHistorico" placeholder="Pesquisar por produto ou responsável..." oninput="searchTableUtilizados()">
+    </div>
+
+    <div class="filtros">
+
+        <select id="filterSelectHistorico" onchange="applyFiltersUtilizados()">
+            <option value="opcao1">Ordenar por...</option>
+            <option value="opcao2">Produto</option>
+            <option value="opcao3">Quantidade Utilizada</option>
+            <option value="opcao4">Responsável</option>
+            <option value="opcao5">Data de Saída</option>
+        </select>
+
+    </div>
+</div>
+
+
+   
+    <table id="tabela-historico" >
+        <thead>
+            <tr>
+                <th>Produto</th>
+                <th>Quantidade Utilizada</th>
+                <th>Responsável</th>
+                <th>Data de Saída</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Os dados serão carregados dinamicamente aqui -->
+        </tbody>
+    </table>
+</div>
+
+     
+    </div>
+</div>
+  
+    
+
+  </main>
+ <!-- Caixa de mensagem para feedback ao usuário -->
+ <div id="message-box"></div>
+  <!-- Link para o arquivo JavaScript -->
+
+  <script src="../js/script.js" defer></script>
+  
+   <script src="../js/imprimir.js" ></script>
+</body>
+</html>

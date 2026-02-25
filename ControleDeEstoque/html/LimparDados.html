@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Controle de Estoque</title>
+  <link rel="stylesheet" href="../css/style.css">
+<link rel="icon" type="image/svg+xml" href="../imagens/icon.svg">
+</head>
+<body>
+  <header>
+    
+
+    <a href="index.html"><p>Controle De Estoque</p></a>
+
+
+
+  </header>
+
+ 
+  <main>
+
+    <div id="mobile-menu-icon">&#9776;</div> <!-- Ícone de hambúrguer -->
+    <div id="Menu">    
+       <div id="close-menu-icon">&#10005;</div> <!-- Botão de "X" para fechar o menu -->
+       <a href="index.html">  <div class="circle-container">  <div class="circle"><img class="icon" src="../imagens/home.png" alt=""></div><p>Home</p></div></a>
+       <a href="adicionarhtml.php">  <div class="circle-container"> <div class="circle"><img class="icon" src="../imagens/adicionar.png" alt=""></div><p>Adicionar</p></div></a>
+       <a href="utilizar.html"> <div class="circle-container"> <div class="circle"><img class="icon" src="../imagens/botao-de-menos.png" alt=""></div><p>Utilizar</p></div></a>
+       <a href="LimparDados.html"> <div class="circle-container"><div class="circle"><img class="icon1" src="../imagens/Limpar.png" alt=""></div><p>Limpar Dados</p></div></a>
+      
+        <a href="imprimir-estoque.html"> 
+        <div class="circle-container"> 
+          <div class="circle"><img class="icon1" src="../imagens/pdf.png" alt=""></div>
+          <p>Imprimir</p>
+        </div>
+      </a>
+    </div>
+
+   <div id="corpo">
+
+    <div id="cabecalho">
+        <p>Limpe Dados do Estoque</p>
+    </div>
+   
+    <div  class="cabdados">
+      <h3 class="h3">Limpe Dados do Estoque</h3>
+    </div>
+
+
+
+
+<div class="dados-container">
+   
+
+ 
+   <div class="apagar-container">   <img onclick="solicitarSenha('utilizados')" class="icon-grande" src="../imagens/Limpar.png" alt="">
+    <p>Clique aqui para apagar todo o historico de saida dos Produtos no banco de dados</p>
+  </div>
+ 
+</div>
+    
+    <!-- Modal para inserir a senha -->
+    <div id="modalSenha" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 20px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+      <h3>Digite a senha para confirmar:</h3>
+      <input type="password" id="senhaInput" placeholder="Senha">
+      <button onclick="validarSenha()">Confirmar</button>
+      <button onclick="fecharModal()">Cancelar</button>
+  </div>
+
+
+   </div>
+
+
+
+
+
+  
+    
+    
+  </main>
+  <script>
+    let tabelaSelecionada = "";
+
+    // Função para abrir o modal de senha
+    function solicitarSenha(tabela) {
+        tabelaSelecionada = tabela;
+        document.getElementById("modalSenha").style.display = "block";
+    }
+
+    // Função para fechar o modal de senha
+    function fecharModal() {
+        document.getElementById("modalSenha").style.display = "none";
+    }
+
+    // Função para validar a senha
+    function validarSenha() {
+        const senhaInserida = document.getElementById("senhaInput").value;
+
+        // Senha fixa (substitua por uma lógica mais segura em produção)
+        const senhaCorreta = "apagar404";
+
+        if (senhaInserida === senhaCorreta) {
+            // Redirecionar para apagar os dados da tabela selecionada
+            window.location.href = `../php/apagar.php?tabela=${tabelaSelecionada}`;
+        } else {
+            alert("Senha incorreta. Tente novamente.");
+        }
+    }
+</script>
+<script src="../js/script.js" defer></script>
+</body>
+</html>

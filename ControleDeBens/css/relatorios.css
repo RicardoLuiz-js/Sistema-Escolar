@@ -1,0 +1,252 @@
+
+body{
+ overflow: hidden;
+}
+.search{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  
+}
+.searchCount{
+  color: rgb(0, 255, 13);
+  position: absolute;
+  margin-left:34vw ;
+
+}
+
+.relatorios-container{
+
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: auto;
+   margin-right: 10vw;
+   margin-left:10vw;
+    
+    justify-content: center;
+    align-items: center;
+
+}
+select{
+ background-color: #1D1D1D;
+ border: none;
+ width: 10vw;
+ height: 5vh;
+ color: #ddd;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #000000;
+  color: white;
+}
+
+.cabo{
+  background-color: #121212;
+width: 100%;
+  color: #ddd;
+ 
+
+}
+
+.container{
+  background-color: #1D1D1D;
+display: flex;
+flex-direction: column;
+justify-content: flex-start;
+margin-bottom: 10px;
+
+  
+}
+.cabecalho{
+
+background-color: #ffffffab;
+  width: 100%;
+  height: 15vh;
+  padding-left: 10px;
+  display: flex;
+  color: #000000;
+  justify-content: flex-start;
+  z-index: -1;
+}
+
+.btn-editar{
+    display: none;
+}
+.btn-excluir{
+    display: none;
+}
+
+
+#form-cab-m{
+ background-color: #121212;
+  display: flex;
+  justify-content: center;
+  
+  gap: 200px;
+  color: #ddd;
+  height: 60px;
+  align-items: center;
+  width: 77.3vw;
+ 
+
+}
+#form-items-m{
+
+    background-color: #121212;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  width: 100%;
+  height: 100%;
+}
+
+#myTable-movimentacoes{
+  
+ width: 100%;
+}
+#movimentacoes{
+  min-width: 10px;
+ 
+}
+
+
+      .eye-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        
+        .eye {
+            width: 60px;
+            height: 60px;
+            background-color: #f0f0f0;
+            border-radius: 50%;
+            position: relative;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+           margin-top: 10px;
+           margin-bottom: 10px;
+        }
+        
+        .eye:hover {
+            transform: scale(1.05);
+        }
+        
+        .eye::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 30px;
+            height: 30px;
+            background-color: #222;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+        
+        .eye::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 15px;
+            height: 15px;
+            background-color: white;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+        
+        .eye.closed::before {
+            height: 5px;
+            border-radius: 5px;
+            transform: translate(-50%, -50%) rotate(0deg);
+        }
+        
+        .eye.closed::after {
+            opacity: 0;
+        }
+
+  .relatorios-container.hidden {
+            opacity: 0;
+            height: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+          .movimentacoes-container.hidden {
+            opacity: 0;
+            height: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        .imprimir-button{
+          background-color: transparent;
+          border-style: none;
+          position: fixed;
+          bottom: 70%;
+          left: 93%;
+        }
+        .pdf{
+          width: 50px;
+        }
+
+@media print {
+   .imprimir-button{
+    display: none;
+   }
+  body {
+    background: white;
+    color: black;
+    font-size: 12pt;
+  }
+
+  nav, footer, .botao-imprimir {
+    display: none;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+.cabo{
+  color: black;
+}
+  th {
+    background-color: #f0f0f0;
+    color: #000;
+  }
+  .tm{
+    color: #000;
+  }
+  .cabecalho{
+display: none;
+}
+#tabela-bens{
+    background-color: aliceblue;
+    color: #000000;
+}
+
+#filtro-local{
+    width: 100%;
+    color: #000;
+}
+#quantity-item{
+    width: 100%;
+    display: flex;
+}
+.eye{
+  display: none;
+}
+  .filtro-select{
+    width: 100%;
+  }
+}

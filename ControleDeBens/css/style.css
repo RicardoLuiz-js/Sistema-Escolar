@@ -1,0 +1,588 @@
+body{
+    background-color: #333333;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    overflow: hidden;
+}
+
+
+
+
+header {
+  background-color: #1A1A1A;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    width: 100vw;
+    height: 5vh;
+    color: #ffffff;
+    font-size: medium;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  
+  }
+
+
+  main{
+    display: flex;
+    
+  }
+
+   #message-box {
+          position: fixed;
+          bottom: 20px;
+          right: 20px;
+          background-color: #4CAF50;
+          color: white;
+          padding: 15px;
+          border-radius: 5px;
+          display: none;
+          z-index: 1000;
+      }
+
+  .red{
+    color: red;
+  }
+
+.cabdados{
+  background-color: #121212;
+  display: flex;
+  justify-content: center;
+ 
+
+  color: #ddd;
+  height: 60px;
+  align-items: center;
+  width: 90.6%;
+ 
+}
+
+.dados-container{
+  background-color: #1D1D1D;
+  width: 90.6%;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  
+ 
+  
+  
+}
+
+.apagar-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 200px;
+  color: #e9e93d;
+ 
+}
+
+
+#cabecalho{
+  background-color: #ffffffab;
+  width: 100%;
+  height: 15vh;
+  padding-left: 10px;
+  display: flex;
+  color: #000000;
+  justify-content: flex-start;
+  z-index: -1;
+}
+
+#corpo{
+  width: 100%;
+  display: flex;
+
+  align-items: center;
+  flex-direction: column;
+ 
+}
+
+#total-itens{
+  font-size: small;
+  color: #2cf736;
+}
+  
+  #Menu {
+    height: 100vh;
+    min-width: 200px;
+    background-color: #121212;
+    display: flex;
+    
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    padding-top: 4.8%;
+    transition: transform 0.3s ease-in-out; /* Adiciona transição suave */
+    
+  }
+  
+.circle-container{
+  display: flex;
+  flex-direction: column;
+ justify-content: center;
+ align-items: center;
+ text-align: center;
+  color: #ddd;
+}
+
+
+  .circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background-color: #FFFFFF; /* Cor de fundo do círculo */
+    border-radius: 50%; /* Faz com que a borda seja completamente arredondada */
+}
+
+  
+
+ .bt-cadeado{
+background-color: transparent;
+border: none;
+
+ }
+
+
+  
+  .icon {
+    width: 30px;
+    height: 30px;
+    
+  }
+
+
+  .icon-grande {
+    width: 100px;
+    height: 100px;
+    
+  }
+
+  .icon1 {
+    width: 35px;
+    height: 35px;
+    
+  }
+  .icon2 {
+    width: 20px;
+    height: 20px;
+    
+  }
+
+  .btn-excluir{
+    border: none;
+    background: none;
+  }
+
+  .btn-editar{
+    border: none;
+    background: none;
+  }
+  a{
+    color: rgb(255, 255, 255);
+    display: flex;
+    gap: 5px;
+    font-size: medium;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-decoration: none;
+   
+  }
+  
+
+
+#form-cab{
+  background-color: #121212;
+  display: flex;
+  justify-content: center;
+  
+  gap: 200px;
+  color: #ddd;
+  height: 60px;
+  align-items: center;
+  width: 77.3vw;
+ 
+
+}
+
+.form-cab{
+  background-color: #121212;
+  display: flex;
+  justify-content: center;
+  
+ 
+  color: #ddd;
+  height: 60px;
+  align-items: center;
+  width: 100%;
+  
+
+}
+
+
+
+.cab{
+  background-color: #121212;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ddd;
+  height: 60px;
+  width: 100%;
+  margin-top: 50px;
+  font-size: small;
+}
+
+
+
+
+.cab-utilizados{
+  background-color: #0A0E1B;
+}
+.filtro-utilizados{
+ background-color:  #0F1426;
+}
+
+#tabela-utilizados{
+  overflow-y: auto;
+ width: 75vw;
+
+}
+
+input{
+  width: 100%;
+}
+
+#container-pai{
+  width: 50%;
+}
+#container-filho{
+background-color: #1D1D1D;
+
+
+
+}
+
+.form-caixa{
+  display: flex;
+  flex-direction: row;
+  background-color: #0A0A0A;
+  margin-bottom: 10px;
+  height: 5vh;
+  width: 100%;
+
+  align-items: center;
+ 
+  white-space:  nowrap;
+}
+.selectw{
+  width: 100%;
+  height: 20px;
+}
+
+.button-container{
+  display: flex;
+  background-color: #0A0A0A;
+  height: 5vh;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  
+  white-space:  nowrap;
+}
+.button-cadastro{
+  background-color: #ffffff;
+  width: 70%;
+  color: #000000;
+}
+
+
+.form{
+  padding-top: 30px;
+  padding-bottom: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
+ color: #ddd;
+  
+}
+
+#form-items{
+  background-color: #121212;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  width: 77.3vw;
+  height: 7vh;
+}
+
+.form-items{
+  background-color: #0F1426;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  width: 77.3vw;
+  height: 7vh;
+}
+#quantity-items{
+    background-color: #1D1D1D;
+    border: none;
+    width: 10vw;
+    height: 5vh;
+    color: #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+select{
+ background-color: #1D1D1D;
+ border: none;
+ width: 10vw;
+ height: 5vh;
+ color: #ddd;
+}
+.pesquisa{
+  background-color: #1D1D1D;
+  border: none;
+  width: 40vw;
+ height: 5vh;
+ color: aliceblue;
+}
+
+#form-container{
+  background-color: #1D1D1D;
+  width: 77.3vw;
+  height: 50vh;
+  overflow-y: auto;
+  
+  
+}
+
+.form-container{
+  background-color: #0F1426;
+  width: 77.3vw;
+  height: 50vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  
+}
+
+
+ /* Personalizar as barras de rolagem */
+ #form-container::-webkit-scrollbar {
+  width: 1vw; /* Largura da barra de rolagem vertical */
+}
+#form-container::-webkit-scrollbar-track {
+  background:#272930; /* Cor do trilho da barra de rolagem */
+}
+#form-container::-webkit-scrollbar-thumb {
+  background: #ffffff; /* Cor da "pegada" da barra de rolagem */
+  border-radius: 6px; /* Bordas arredondadas */
+}
+#form-container::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Cor da "pegada" da barra de rolagem ao passar o mouse */
+}
+
+
+/* Personalizar as barras de rolagem */
+.form-container::-webkit-scrollbar {
+  width: 1vw; /* Largura da barra de rolagem vertical */
+}
+.form-container::-webkit-scrollbar-track {
+  background:#0F1426; /* Cor do trilho da barra de rolagem */
+}
+.form-container::-webkit-scrollbar-thumb {
+  background: #6a1b9a; /* Cor da "pegada" da barra de rolagem */
+  border-radius: 6px; /* Bordas arredondadas */
+}
+.form-container::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Cor da "pegada" da barra de rolagem ao passar o mouse */
+}
+
+
+
+/* Estilos gerais da tabela */
+h2 {
+  color: white;
+  text-align: center;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #000000;
+  color: white;
+}
+
+#mytable{
+  width: 100%;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #4b4c4e;
+}
+
+th {
+  background-color: #1D1D1D;
+}
+
+tbody tr:hover {
+  background-color: #707275;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #1D1D1D;
+}
+
+/* Cores para os estados dos produtos */
+.em-falta {
+  background-color: #f72c2c !important; /* Vermelho claro para produtos em falta */
+  
+}
+
+.validade-proxima {
+  background-color: #e9e93d !important; /* Amarelo claro para produtos perto de vencer */
+  color: #080D1C;
+}
+
+.estragado {
+  background-color: #CC0000 !important; /* Vermelho escuro para produtos vencidos */
+  color: white !important; /* Texto branco para melhor contraste */
+}
+
+
+.form-editar{
+  background-color: #080D1C;
+  
+}
+
+
+
+
+
+/* Estilo para o ícone de hambúrguer (inicialmente escondido) */
+#mobile-menu-icon {
+  display: none;
+  font-size: 30px;
+  cursor: pointer;
+  padding: 10px;
+  right: 0;
+  position: absolute;
+}
+
+/* Estilo para o botão de "X" (inicialmente escondido) */
+#close-menu-icon {
+  display: none; /* Escondido por padrão */
+  position: absolute;
+  top: 20px;
+  right: 10px;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+
+
+/* Estilo para telas menores (mobile) */
+@media (max-width: 1100px) {
+  #mobile-menu-icon {
+      display: block; /* Mostra o ícone de hambúrguer */
+      
+  }
+
+  #Menu {
+
+      float: left;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%; /* Ocupa toda a largura da tela */
+      height: 100vh; /* Ocupa toda a altura da tela */
+      background-color: #080D1C;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transform: translateX(-100%); /* Esconde o menu fora da tela */
+      z-index: 1000; /* Garante que o menu fique acima de outros elementos */
+  }
+
+  #Menu.active {
+      transform: translateX(0); /* Traz o menu de volta para a tela */
+  }
+
+  #close-menu-icon {
+      display: block; /* Mostra o botão de "X" quando o menu está aberto */
+  }
+
+ 
+
+  #cabecalho{
+    padding-left: 0px;
+    justify-content: center;
+  }
+  
+
+  #form-cab{
+    gap: 4%;
+    width: 99vw;
+  }
+
+  #form-items{
+    gap: 10%;
+    width: 99vw;
+  }
+
+  #form-container{
+    width: 99vw;
+  }
+body{
+  color: white;
+  font-size: 60%;
+  overflow-y: auto;
+  
+}
+p{
+  font-size: 130%;
+}
+input{
+  background-color: white;
+}
+
+textarea{
+  background-color: #ddd;
+}
+
+#container-pai{
+  width: 99vw;
+}
+
+.visible{
+  display: none;
+}
+.data{
+  display: none;
+}
+.form-container{
+  width: 99vw;
+  
+}
+#tabela-utilizados{
+  width: 100%;
+}
+}

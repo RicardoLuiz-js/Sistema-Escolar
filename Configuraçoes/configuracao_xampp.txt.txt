@@ -1,0 +1,240 @@
+====================================================
+   CONFIGURAÇÃO DO XAMPP - HABILITAR EXTENSÃO ZIP
+====================================================
+
+📅 Data: 24/02/2026
+📌 Sistema: Windows com XAMPP
+
+====================================================
+  PASSO A PASSO
+====================================================
+
+1️⃣  ABRIR O XAMPP CONTROL PANEL
+    ------------------------------------------------
+    • Abra o XAMPP (ícone no desktop ou Iniciar)
+    • Aguarde o painel carregar
+
+
+2️⃣  ABRIR O ARQUIVO PHP.INI
+    ------------------------------------------------
+    • No XAMPP Control Panel, localize o Apache
+    • Clique no botão "Config" (ao lado do "Start")
+    • No menu que abrir, selecione "PHP (php.ini)"
+    
+    ⚠️ O arquivo php.ini será aberto no Bloco de Notas
+
+
+3️⃣  PROCURAR A EXTENSÃO ZIP
+    ------------------------------------------------
+    • No Bloco de Notas, pressione Ctrl + F
+    • Digite: extension=zip
+    • Clique em "Localizar próxima"
+    
+    OU procure manualmente por:
+    ------------------------------------------------
+    ;extension=zip
+    ;extension=php_zip.dll
+
+
+4️⃣  HABILITAR A EXTENSÃO
+    ------------------------------------------------
+    • Você encontrará uma linha assim:
+      
+      ;extension=zip
+      
+    • Remova o ponto e vírgula (;) do INÍCIO da linha
+      
+      ANTES: ;extension=zip
+      DEPOIS: extension=zip
+      
+    ⚠️ NÃO remova outros pontos e vírgulas!
+
+
+5️⃣  SALVAR O ARQUIVO
+    ------------------------------------------------
+    • Pressione Ctrl + S para salvar
+    • Ou clique em Arquivo > Salvar
+    • Feche o Bloco de Notas
+
+
+6️⃣  REINICIAR O APACHE
+    ------------------------------------------------
+    • No XAMPP Control Panel:
+    • Clique em "Stop" no Apache
+    • Aguarde alguns segundos
+    • Clique em "Start" novamente
+    
+    ✅ O Apache deve iniciar normalmente
+
+
+7️⃣  VERIFICAR SE FUNCIONOU
+    ------------------------------------------------
+    • Crie um arquivo PHP com este código:
+    
+    <?php
+    if (class_exists('ZipArchive')) {
+        echo "✅ ZipArchive habilitado!";
+    } else {
+        echo "❌ ZipArchive NÃO habilitado";
+    }
+    ?>
+    
+    • Acesse pelo navegador
+    • Deve aparecer a mensagem de sucesso
+
+
+====================================================
+  LOCALIZAÇÃO DOS ARQUIVOS IMPORTANTES
+====================================================
+
+📁 Pastas do Projeto:
+----------------------------------------
+C:\xampp\htdocs\SistemaEscolar\DiarioEscolar\
+├── html\
+│   ├── imagens.php
+│   ├── arquivos.php
+│   ├── limpar.php
+│   └── relatorios.php
+├── css\
+├── js\
+├── php\
+│   ├── limpar_funcoes.php
+│   ├── limpar_ajax.php
+│   └── imagens_funcoes.php
+├── uploads\
+│   └── relatorios\
+│       ├── 2026\
+│       │   ├── 02\
+│       │   └── 03\
+└── backups\          (criar esta pasta)
+
+
+====================================================
+  SE NÃO ACHAR A LINHA NO PHP.INI
+====================================================
+
+Opção 1 - Procurar pela seção:
+----------------------------------------
+Procure por [ExtensionList] ou [Extensions]
+E adicione manualmente:
+extension=zip
+
+Opção 2 - Adicionar no final:
+----------------------------------------
+Vá até o FINAL do arquivo php.ini e adicione:
+extension=zip
+
+
+====================================================
+  CRIAR PASTA DE BACKUPS (se não existir)
+====================================================
+
+Via PowerShell (como Administrador):
+----------------------------------------
+cd C:\xampp\htdocs\SistemaEscolar\DiarioEscolar
+mkdir backups
+
+Via Explorador de Arquivos:
+----------------------------------------
+1. Navegue até C:\xampp\htdocs\SistemaEscolar\DiarioEscolar\
+2. Clique com botão direito > Novo > Pasta
+3. Nomeie como: backups
+
+
+====================================================
+  CÓDIGO DE TESTE RÁPIDO
+====================================================
+
+Crie um arquivo: C:\xampp\htdocs\SistemaEscolar\DiarioEscolar\html\teste_zip.php
+
+<?php
+echo "<h2>🔍 Teste da Extensão Zip</h2>";
+
+if (class_exists('ZipArchive')) {
+    echo "✅ <strong>ZipArchive está habilitado!</strong><br><br>";
+    
+    // Testar criação de ZIP
+    $zip = new ZipArchive();
+    $arquivoZip = __DIR__ . '/teste.zip';
+    
+    if ($zip->open($arquivoZip, ZipArchive::CREATE) === TRUE) {
+        $zip->addFromString('teste.txt', 'Backup funcionando!');
+        $zip->close();
+        echo "✅ Arquivo ZIP criado com sucesso!<br>";
+        echo "📁 Local: $arquivoZip<br>";
+        
+        // Mostrar informações do arquivo
+        if (file_exists($arquivoZip)) {
+            echo "📦 Tamanho: " . filesize($arquivoZip) . " bytes<br>";
+            unlink($arquivoZip);
+            echo "✅ Arquivo de teste removido<br>";
+        }
+    } else {
+        echo "❌ Erro ao criar arquivo ZIP<br>";
+    }
+} else {
+    echo "❌ <strong>ZipArchive NÃO está habilitado!</strong><br><br>";
+    echo "Siga os passos acima para habilitar a extensão.<br>";
+}
+
+echo "<hr>";
+echo "<h3>📋 Informações do Sistema:</h3>";
+echo "PHP Version: " . phpversion() . "<br>";
+echo "Sistema: " . PHP_OS . "<br>";
+echo "Usuário: " . get_current_user() . "<br>";
+?>
+
+Acesse: http://localhost/SistemaEscolar/DiarioEscolar/html/teste_zip.php
+
+
+====================================================
+  ERROS COMUNS E SOLUÇÕES
+====================================================
+
+❌ Erro: "Class 'ZipArchive' not found"
+   ✅ Solução: Habilitar extension=zip no php.ini
+
+❌ Erro: "Failed to open stream: Permission denied"
+   ✅ Solução: Dar permissão na pasta (Windows geralmente OK)
+
+❌ Erro: "Unexpected token '<' in JSON"
+   ✅ Solução: Verificar se não há espaços ou HTML antes do <?php
+
+❌ Erro: "Unexpected end of JSON input"
+   ✅ Solução: Verificar se o PHP está retornando erro interno
+
+
+====================================================
+  COMANDOS ÚTEIS (PowerShell)
+====================================================
+
+# Navegar até a pasta do projeto
+cd C:\xampp\htdocs\SistemaEscolar\DiarioEscolar
+
+# Criar pasta de backups
+mkdir backups
+
+# Listar arquivos da pasta
+ls backups\
+
+# Ver permissões da pasta
+Get-Acl backups\ | Format-List
+
+# Dar permissão total (se necessário)
+icacls backups /grant Todos:F /t
+
+
+====================================================
+  OBSERVAÇÕES IMPORTANTES
+====================================================
+
+✅ O Windows NÃO precisa de comando chmod
+✅ As permissões são automáticas no Windows
+✅ Sempre reinicie o Apache após alterar php.ini
+✅ A pasta backups DEVE ter permissão de escrita
+✅ Os arquivos PHP NÃO podem ter BOM (UTF-8 without BOM)
+
+====================================================
+  CRIADO EM: 24/02/2026
+  SISTEMA: Diário Escolar
+====================================================

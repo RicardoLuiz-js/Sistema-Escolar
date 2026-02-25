@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Controle de Bens</title>
+  <link rel="stylesheet" href="../css/relatorios.css">
+  <link rel="stylesheet" href="../css/style.css">
+   <!-- Seção de status e filtros -->
+ 
+  <link rel="icon" type="image/svg+xml" href="../imagens/laptop.svg">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body style="overflow-y: auto;">
+  <header>
+    <a href="index.html"><p>Controle De Bens</p></a>
+  </header>
+
+  <main>
+   
+
+    <div id="corpo">
+      <div class="cabecalho">
+        <p>Relatorios de Bens</p>
+      </div>
+      <button class="imprimir-button" onclick="imprimir()"><img class="pdf" src="../imagens/pdf.png" alt=""></button>
+  <div class="eye-container">
+            <div class="eye" id="eye"></div>
+        </div>
+     <div  class="relatorios-container" id="content">
+       
+      <div class="cabo" >
+        <h2>Bens</h2>
+      </div>
+      <div class="container">
+              <!-- Seção de status e filtros -->
+      <div id="form-cab" >
+      <div id="form-items">
+        <div id="categorias">  
+         <select id="filtro-local" class="filtro-select">
+    <option value="">Todos os locais</option>
+</select>
+        </div>
+
+        <div id="pesquisa" class="search">
+          <input id="searchInput" onkeyup="searchTable()" class="pesquisa" type="search" placeholder="Pesquise Por Bens">
+          <p id="searchCount" class="searchCount"></p>
+        </div>
+
+        <div id="quantity-items">
+          <p id="total-itens"></p>
+        </div>
+      </div>
+      </div>
+        <section id="bens-cadastrados">
+          <table id="myTable">
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>Descrição</th>
+                 <th>Local</th>
+                <th>Código</th>
+                <th>Data de Entrada</th>
+              </tr>
+            </thead>
+            <tbody id="tabela-bens">
+              <!-- As linhas da tabela serão preenchidas aqui via JavaScript -->
+            </tbody>
+          </table>
+        </section>
+      
+      </div>
+    
+</div>
+  <div class="eye-container">
+            <div class="eye" id="eyeM"></div>
+        </div>
+     <div  class="relatorios-container"  class="movimentacoes-container" id="contentM">
+       
+      <div class="cabo" >
+        <h2>Movimentaçoes</h2>
+      </div>
+      <div class="container">
+              <!-- Seção de status e filtros -->
+      <div id="form-cab-m">
+      <div id="form-items-m">
+        <div id="categorias-m">  
+         <select id="filtro-m" class="filtro-select" onchange="applyFilters()">
+    <option value="opcao1">Todas as movimentacoes</option>
+     <option value="opcao2">Edição</option>
+      <option value="opcao3">Exclusao</option>
+       <option value="opcao4">Transferencias</option>
+</select>
+        </div>
+
+        <div id="pesquisa-m" class="search">
+          <input id="searchInput-m" onkeyup="searchTableM()" class="pesquisa" type="search" placeholder="Pesquise Por Movimentaçoes">
+           <p id="searchCount-m" class="searchCount"></p>
+        </div>
+
+        <div id="filtro-m">
+                  <select id="filtro-local-m" class="filtro-select" onchange="filtrarMovimentacoes()">
+    <option value="">Filtros</option>
+     <option value="novo">Mais novo</option>
+      <option value="antigo">Mais antigo</option>
+ <!-- Adicione mais filtros aqui por data etc -->
+</select>
+        </div>
+      </div>
+      </div>
+        <section id="movimentacoes">
+          <table id="myTable-movimentacoes">
+            <thead>
+              <tr id="tm" class="tm">
+                <th>Nome</th>
+                <th>ação</th>
+                 <th>descrição</th>
+                <th>local anterior</th>
+                <th>local atual</th>
+                <th>data da movimentação</th>
+              </tr>
+            </thead>
+            <tbody id="tabela-movimentacoes">
+              <!-- As linhas da tabela serão preenchidas aqui via JavaScript -->
+            </tbody>
+          </table>
+        </section>
+      
+      </div>
+    
+</div>
+</div>
+     
+  </main>
+         <script src="../js/global.js" ></script>
+  <script src="../js/script.js" ></script>
+   <script src="../js/relatorio.js" ></script>
+  
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Controle de Estoque</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="icon" type="image/svg+xml" href="../imagens/icon.svg">
+  <style>
+    #message-box {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #4CAF50;
+        color: white;
+        padding: 15px;
+        border-radius: 5px;
+        display: none;
+        z-index: 1000;
+    }
+  </style>
+  
+</head>
+<body style="overflow-y: auto;">
+  <header>
+    
+
+    <a href="index.html"><p>Controle De Estoque</p></a>
+
+
+
+  </header>
+
+ 
+  <main>
+    <div id="mobile-menu-icon">&#9776;</div> <!-- Ícone de hambúrguer -->
+      <div id="Menu" >
+        <div id="close-menu-icon">&#10005;</div> <!-- Botão de "X" para fechar o menu -->
+        <div style="position: fixed; display: flex; flex-direction: column; align-items: center;">
+       
+           
+           <a href="index.html">  <div class="circle-container">  <div class="circle"><img class="icon" src="../imagens/home.png" alt=""></div><p>Home</p></div></a>
+           <a href="adicionarhtml.php">  <div class="circle-container"> <div class="circle"><img class="icon" src="../imagens/adicionar.png" alt=""></div><p>Adicionar</p></div></a>
+           <a href="utilizar.html"> <div class="circle-container"> <div class="circle"><img class="icon" src="../imagens/botao-de-menos.png" alt=""></div><p>Utilizar</p></div></a>
+           <a href="LimparDados.html"> <div class="circle-container"><div class="circle"><img class="icon1" src="../imagens/Limpar.png" alt=""></div><p>Limpar Dados</p></div></a>
+         
+        <div class="circle-container"> 
+          <div class="circle"><img class="icon1" src="../imagens/pdf.png" alt=""></div>
+          <p>Imprimir</p>
+        </div>
+      </a>
+    </div>
+    </div>
+    
+
+   <div id="corpo">
+
+    <div id="cabecalho">
+        <p>Utilizar Produtos Do Estoque</p>
+    </div>
+   
+    <div id="form-cab">
+        <a href="" >Principal</a>
+        <div class="status-container">
+            <span id="emFaltaCount">0</span>
+            <a href="#" onclick="toggleFilter('emFalta')">Em Falta</a>
+        </div>
+        <div class="status-container">
+            <span id="validadeCount">0</span>
+            <a href="#" onclick="toggleFilter('validade')">Validade</a>
+        </div>
+        <div class="status-container">
+            <span id="estragadosCount">0</span>
+            <a href="#" onclick="toggleFilter('estragados')">Estragados</a>
+        </div>
+    </div>
+
+<div id="form-items">
+
+    <div id="categorias">  
+        <select id="categorySelect" onchange="applyFilters()">
+            <option value="opcao1">Categorias</option>
+            <option value="Alimentos não perecíveis">Alimentos não perecíveis</option>
+            <option value="Alimentos perecíveis">Alimentos perecíveis</option>
+            <option value="Frios e carnes">Frios e carnes</option>
+            <option value="Limpeza">Limpeza</option>
+        </select>
+    </div>
+
+    <div id="pesquisa">
+        <input id="searchInput" onkeyup="searchTable()" class="pesquisa" type="search" placeholder="Pesquise Por Produtos">
+    </div>
+
+    <div id="filtros">
+
+    <select id="filterSelect" onchange="applyFilters()">
+        <option value="opcao1">Filtros</option>
+        <option value="opcao2">Data De Entrada</option>
+        <option value="opcao3">Data De Validade</option>
+        <option value="opcao4">Quantidade</option>
+    </select>
+
+    </div>
+
+</div>
+
+
+<div id="form-container" style="height: 30vh;">
+    <section id="produtos-cadastrados">
+        
+        <table id="myTable">
+            <thead>
+                <tr>
+                    <th>Nome do Produto</th>
+                    <th>Descrição</th>
+                    <th class="visible">Categoria</th>
+                    <th>Quantidade</th>
+                    <th class="visible">Unidade</th>
+                    <th class="data">Data de Entrada</th>
+                    <th class="data">Data de Validade</th>
+                    <th></th>
+                    
+                </tr>
+            </thead>
+            <tbody id="tabela-produtos">
+                <!-- As linhas da tabela serão preenchidas aqui via JavaScript -->
+            </tbody>
+        </table>
+    </section>
+</div>
+
+
+
+<div class="form-container">
+    <div class="form-cab"> <h2>Produtos Utilizados</h2></div>
+    <div class="form-items">  
+
+    <div id="pesquisa">
+        <input class="pesquisa" type="text" id="searchInputUtilizados" placeholder="Pesquisar por produto ou responsável..." oninput="searchTableUtilizados()">
+    </div>
+
+    <div class="filtros">
+
+        <select id="filterSelectUtilizados" onchange="applyFiltersUtilizados()">
+            <option value="opcao1">Ordenar por...</option>
+            <option value="opcao2">Produto</option>
+            <option value="opcao3">Quantidade Utilizada</option>
+            <option value="opcao4">Responsável</option>
+            <option value="opcao5">Data de Saída</option>
+        </select>
+
+    </div>
+</div>
+
+
+   
+    <table id="tabela-utilizados" >
+        <thead>
+            <tr>
+                <th>Produto</th>
+                <th>Quantidade Utilizada</th>
+                <th>Responsável</th>
+                <th>Data de Saída</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Os dados serão carregados dinamicamente aqui -->
+        </tbody>
+    </table>
+</div>
+
+   </div>
+
+
+
+
+
+  
+    
+    
+  </main>
+<!-- Caixa de mensagem para feedback ao usuário -->
+<div id="message-box"></div>
+<script src="../js/script-utilizar.js" defer></script>
+</body>
+</html>
